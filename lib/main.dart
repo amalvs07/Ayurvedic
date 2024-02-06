@@ -1,4 +1,6 @@
+import 'package:ayurvedic_clinic/provider/getPatientListProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/splash_screen/screen_splash.dart';
 
@@ -12,16 +14,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Ayurvedic Clinc',
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
-        useMaterial3: true,
-        
-      ),
-      debugShowCheckedModeBanner: false,
-      home: ScreenSplash(),
+    return MultiProvider(
+      providers: [
+ ChangeNotifierProvider(
+          create: (_) => PatientListProvider(),
+        ),
+      ],
+     
+        child: MaterialApp(
+          title: 'Ayurvedic Clinc',
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+            useMaterial3: true,
+            
+          ),
+          debugShowCheckedModeBanner: false,
+          home: ScreenSplash(),
+        ),
+      
     );
   }
 }

@@ -50,7 +50,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
         await Future.delayed(Duration(seconds: 2));
 
        
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ScreenHome()),
         );
